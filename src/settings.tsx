@@ -45,7 +45,7 @@ function SettingsPanel({ config: _config, setConfig: _setConfig }: QQNTim.Settin
                             width="150px"
                         />
                     </SettingsBoxItem>
-                    <SettingsBoxItem title="更换间隔" description={["指定壁纸的切换间隔（如果存在多个壁纸）。"]}>
+                    <SettingsBoxItem title="更换间隔" description={["指定壁纸的切换间隔（如果存在多个壁纸）。"]} isLast={true}>
                         <Dropdown
                             items={[
                                 [30 as const, "30 秒钟"],
@@ -89,7 +89,7 @@ function SettingsPanel({ config: _config, setConfig: _setConfig }: QQNTim.Settin
                             </Button>,
                         ]}
                     >
-                        <SettingsBoxItem title="来源" description={["指定此插件应从何处获取壁纸。"]}>
+                        <SettingsBoxItem title="来源" description={["指定此插件应从何处获取壁纸。"]} isLast={wallpaper.source == "none"}>
                             <Dropdown
                                 items={[
                                     ["none" as const, "无"],
@@ -104,7 +104,7 @@ function SettingsPanel({ config: _config, setConfig: _setConfig }: QQNTim.Settin
                             />
                         </SettingsBoxItem>
                         {wallpaper.source == "file" && (
-                            <SettingsBoxItem title="文件" description={["指定壁纸文件（支持多选）。", `当前文件：${wallpaper.files.join(", ") || "无"}`]}>
+                            <SettingsBoxItem title="文件" description={["指定壁纸文件（支持多选）。", `当前文件：${wallpaper.files.join(", ") || "无"}`]} isLast={true}>
                                 <Button
                                     onClick={() => {
                                         dialog.openDialog({ title: "打开图片", filters: [{ name: "支持的图片", extensions: ["jpg", "jpeg", "png", "gif", "svg", "bmp", "ico", "webp"] }], properties: ["openFile", "multiSelections"] }).then((ret) => {
@@ -122,7 +122,7 @@ function SettingsPanel({ config: _config, setConfig: _setConfig }: QQNTim.Settin
                             </SettingsBoxItem>
                         )}
                         {wallpaper.source == "dir" && (
-                            <SettingsBoxItem title="文件" description={["指定包含壁纸文件的目录（支持多选）。", `当前目录：${wallpaper.files.join(", ") || "无"}`]}>
+                            <SettingsBoxItem title="文件" description={["指定包含壁纸文件的目录（支持多选）。", `当前目录：${wallpaper.files.join(", ") || "无"}`]} isLast={true}>
                                 <Button
                                     onClick={() => {
                                         dialog.openDialog({ title: "打开目录", properties: ["openDirectory", "multiSelections"] }).then((ret) => {
@@ -140,12 +140,12 @@ function SettingsPanel({ config: _config, setConfig: _setConfig }: QQNTim.Settin
                             </SettingsBoxItem>
                         )}
                         {wallpaper.source == "url" && (
-                            <SettingsBoxItem title="URL" description={["指定包含壁纸文件的 URL（使用换行区分多个 URL）。"]}>
+                            <SettingsBoxItem title="URL" description={["指定包含壁纸文件的 URL（使用换行区分多个 URL）。"]} isLast={true}>
                                 <Input value={wallpaper.urls.join("\n")} onChange={(state) => setWallpaper("urls", state.split("\n"))} />
                             </SettingsBoxItem>
                         )}
                         {wallpaper.source == "script" && (
-                            <SettingsBoxItem title="自定义脚本" description={["指定一个函数，该函数应返回一个返回网址数组的 Promise。示例：", 'return fetch("https://my-wallpaper-source.com/api.json")', "    .then((res)=>res.json()).then((data)=>data.urls);"]}>
+                            <SettingsBoxItem title="自定义脚本" description={["指定一个函数，该函数应返回一个返回网址数组的 Promise。示例：", 'return fetch("https://my-wallpaper-source.com/api.json")', "    .then((res)=>res.json()).then((data)=>data.urls);"]} isLast={true}>
                                 <Input value={wallpaper.script} onChange={(state) => setWallpaper("script", state)} />
                             </SettingsBoxItem>
                         )}
