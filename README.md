@@ -1,4 +1,12 @@
-# QQNTim 模板插件
+# QQNTim 壁纸插件
+
+## 简介
+
+本插件为 QQNT 添加可定期轮换的壁纸。需要安装 [QQNTim 3.0 及以上版本](https://github.com/Flysoft-Studio/QQNTim) 才能使用。
+
+效果图：
+
+![截图](.github/screenshot.png)
 
 ## 开发
 
