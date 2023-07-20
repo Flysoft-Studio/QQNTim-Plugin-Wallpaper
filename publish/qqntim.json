@@ -3,7 +3,7 @@
     "id": "wallpaper",
     "name": "壁纸插件",
     "description": "自定义你的 QQNT 背景。",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Flysoft",
     "injections": [
         {
