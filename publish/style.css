@@ -1,2 +1,28 @@
-/* Put your stylesheet here. */
-
+.wallpaper {
+    background-color: #000000 !important;
+}
+.wallpaper-fit {
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+.wallpaper-tile {
+    background-size: auto !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+}
+.wallpaper-center {
+    background-size: auto !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+.wallpaper-fill {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+.wallpaper-stretch {
+    background-size: 100% 100% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
